@@ -25,9 +25,10 @@
 
   <h1>Random Joke Generator</h1>
   <div class="joke">Click the button to get a random joke!</div>
-  <button onclick="generateJoke()">Get a Joke</button>
+  <button id="jokeButton">Get a Joke</button>
 
   <script>
+    // List of jokes
     const jokes = [
       "Why don’t scientists trust atoms? Because they make up everything!",
       "Why did the scarecrow win an award? Because he was outstanding in his field!",
@@ -36,14 +37,17 @@
       "What do you get when you cross a snowman and a vampire? Frostbite.",
       "Why can't you hear a pterodactyl in the bathroom? Because it has a silent pee.",
       "What do you call fake spaghetti? An impasta."
-        "What is a skeleton's favourite snack? Spare Ribs."
     ];
 
+    // Function to generate a random joke
     function generateJoke() {
       const jokeElement = document.querySelector('.joke');
       const randomIndex = Math.floor(Math.random() * jokes.length);
       jokeElement.textContent = jokes[randomIndex];
     }
+
+    // Adding event listener to the button to call generateJoke function
+    document.getElementById('jokeButton').addEventListener('click', generateJoke);
   </script>
 
 </body>

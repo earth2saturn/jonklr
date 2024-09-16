@@ -1,49 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Joke Generator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-            background-color: #f9f9f9;
-        }
-        #joke {
-            font-size: 1.5em;
-            margin: 20px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 1em;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            background-color: #007bff;
-            color: white;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Joke Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .joke {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <h1>Random Joke Generator</h1>
-    <div id="joke">Click the button to get a joke!</div>
-    <button onclick="fetchJoke()">Get Joke</button>
-    <script>
-        async function fetchJoke() {
-            try {
-                const response = await fetch('https://official-joke-api.appspot.com/random_joke');
-                const joke = await response.json();
-                const jokeText = `${joke.setup} - ${joke.punchline}`;
-                document.getElementById('joke').textContent = jokeText;
-            } catch (error) {
-                document.getElementById('joke').textContent = 'Sorry, could not load a joke.';
-            }
-        }
-    </script>
+
+  <h1>Random Joke Generator</h1>
+  <div class="joke">Click the button to get a random joke!</div>
+  <button onclick="generateJoke()">Get a Joke</button>
+
+  <script>
+    const jokes = [
+      "Why don’t scientists trust atoms? Because they make up everything!",
+      "Why did the scarecrow win an award? Because he was outstanding in his field!",
+      "I told my wife she was drawing her eyebrows too high. She looked surprised.",
+      "Why don’t skeletons fight each other? They don’t have the guts.",
+      "What do you get when you cross a snowman and a vampire? Frostbite.",
+      "Why can't you hear a pterodactyl in the bathroom? Because it has a silent pee.",
+      "What do you call fake spaghetti? An impasta."
+        "What is a skeleton's favourite snack? Spare Ribs."
+    ];
+
+    function generateJoke() {
+      const jokeElement = document.querySelector('.joke');
+      const randomIndex = Math.floor(Math.random() * jokes.length);
+      jokeElement.textContent = jokes[randomIndex];
+    }
+  </script>
+
 </body>
 </html>
+

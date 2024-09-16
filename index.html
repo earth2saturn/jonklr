@@ -13,6 +13,12 @@
     .joke {
       font-size: 24px;
       margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      max-width: 500px;
+      margin: 20px auto;
+      background-color: #f9f9f9;
+      border-radius: 5px;
     }
     button {
       padding: 10px 20px;
@@ -39,11 +45,11 @@
       "What do you call fake spaghetti? An impasta."
     ];
 
-    // Function to generate a random joke
+    // Function to generate a random joke and display it
     function generateJoke() {
       const jokeElement = document.querySelector('.joke');
       const randomIndex = Math.floor(Math.random() * jokes.length);
-      jokeElement.textContent = jokes[randomIndex];
+      jokeElement.textContent = jokes[randomIndex];  // Display the random joke
     }
 
     // Adding event listener to the button to call generateJoke function
@@ -52,4 +58,3 @@
 
 </body>
 </html>
-
